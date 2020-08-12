@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    "Hello";
-});
+Route::get('/', 'BackendController@dashboard'
+)->name('dashboard');
+
+Route::resource('items','ItemController');//7 (get4)(post1)(put1)(delete1)
+
+Route::resource('brands','ItemController');
+
+

@@ -1,0 +1,19 @@
+Item Manage
+-----------
+
+-create resource route
+-create contoller (--resource)
+-show route list(route:list)
+-create blades (4 for GET Methods)
+-call specified view for method
+-use store method (form action)
+		-dd()
+		-validation
+		-if include image,upload
+		-data insert
+		-redirect->(index)
+-show in database
+
+Brand Manage
+------------
+
