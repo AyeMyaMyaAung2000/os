@@ -19,7 +19,7 @@
 			<div class="row">
 				{{-- <div class="form-group"> --}}
 					<div class="col-lg-5" style="padding-left: 200px">CodeNo:</div>
-					<div class="col-lg-7"><input type="" name="codeno" class=" form-control my-2"></div>
+					<div class="col-lg-7"><input type="" name="codeno" class=" form-control my-2" ></div>
 				{{-- </div> --}}
 
 				<div class="col-lg-5" style="padding-left: 200px">Name:</div>
@@ -28,11 +28,11 @@
 				<div class="col-lg-5" style="padding-left: 200px">Price:</div>
 				<div class="col-lg-7"><input type="number" name="price" class="my-2 form-control"></div>
 				<div class="col-lg-5" style="padding-left: 200px">Discount:</div>
-				<div class="col-lg-7"><input type="number" name="discount" class="form-control my-2"></div>
+				<div class="col-lg-7"><input type="number" name="discount" class="form-control my-2" ></div>
 				<div class="col-lg-5" style="padding-left: 200px">Photo:</div>
-				<div class="col-lg-7"><input type="file" name="photo" class="form-control-file my-2"></div>
+				<div class="col-lg-7"><input type="file" name="photo" class="form-control-file my-2" ></div>
 				<div class="col-lg-5 my-2" style="padding-left: 200px">Description:</div>
-				<div class="col-lg-7"><input type="text" name="description" class="form-control my-2"></div>
+				<div class="col-lg-7"><input type="text" name="description" class="form-control my-2" ></div>
 
 				<div class="col-lg-5 my-2" style="padding-left: 200px">Brand_id:</div>
 				<div class="col-lg-7">
