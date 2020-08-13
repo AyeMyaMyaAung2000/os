@@ -18,6 +18,10 @@ Route::get('/', 'BackendController@dashboard'
 
 Route::resource('items','ItemController');//7 (get4)(post1)(put1)(delete1)
 
-Route::resource('brands','ItemController');
+Route::resource('brands','BrandController');
+
+Route::resource('categories',"CategoryController");
+
+Route::resource('subcategories',"SubcategoryController");
 
 
