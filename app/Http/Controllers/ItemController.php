@@ -5,20 +5,28 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use App\Items;//<==(Items (model name))
+use App\Item;//<==(Items (model name))
 use App\Brand;
 use App\Subcategory;
 
 class ItemController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->only('show');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+
+  
     public function index()
     {
-        $items=Items::all();
+        $items=Item::all();
     // dd($items);
         return view('backend.items.index',compact('items'));
 
@@ -58,10 +66,10 @@ class ItemController extends Controller
 
         // If include file(filename)
         $imageName=time().'.' .$request->photo->extension();
-        $request->photo->move(public_path('backend/itemimg'),$imageName);
+        $request->photo->move(public_path('backend/itemimg/'),$imageName);
         $myfile='backend/itemimg/' .$imageName;
 
-        $item=new Items;//<==Items (model name)
+        $item=new Item;//<==Items (model name)
         $item->codeno = $request->codeno;
         $item->name = $request->name; 
         $item->photo = $myfile;
@@ -87,7 +95,7 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-        $item=Items::find($id);
+        $item=Item::find($id);
         return view('backend.items.show',compact('item'));
     }
 
@@ -101,7 +109,7 @@ class ItemController extends Controller
     {
         $brands=Brand::all();
         $subcategories=Subcategory::all();
-        $item=Items::find($id);
+        $item=Item::find($id);
        return view('backend.items.edit',compact('brands','subcategories','item'));
    }
 
@@ -134,9 +142,6 @@ class ItemController extends Controller
         //if include file,upload
         if ($request->hasFile('photo')){
              $imageName=time().'.' .$request->photo->extension();
-      
-
-        
         $request->photo->move(public_path('backend/itemimg'),$imageName);
         $myfile='backend/itemimg/' .$imageName;
     }else{
@@ -144,7 +149,7 @@ class ItemController extends Controller
     }
 
          //data update
-        $item=Items::find($id);//<==Items (model name)
+        $item=Item::find($id);//<==Items (model name)
         $item->codeno = $request->codeno;
         $item->name = $request->name; 
         $item->photo = $myfile;
@@ -168,7 +173,7 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-      $item=Items::find($id);
+      $item=Item::find($id);
       $item->delete();
       //redirect
       return redirect()->route('items.index');

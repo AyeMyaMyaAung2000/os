@@ -5,15 +5,8 @@
 	<div class="text-justify py-2">
 
 		<h2>Subcategory Create(Form)</h2>
-		@if ($errors->any())
-		<div class="alert alert-danger">
-			<ul>
-				@foreach ($errors->all() as $error)
-				<li>{{ $error }}</li>
-				@endforeach
-			</ul>
-		</div>
-		@endif
+		
+		
 		<form method="POST" action="{{ route('subcategories.store')}}" enctype="multipart/form-data">
 			@csrf
 			<div class="row">
@@ -23,7 +16,11 @@
 				{{-- </div> --}}
 
 				<div class="col-lg-5" style="padding-left: 200px">Name:</div>
-				<div class="col-lg-7"><input type="text" name="name" class=" form-control my-2"></div>
+				<div class="col-lg-7"><input type="text" name="name" class=" form-control my-2">
+					@error('codeno')
+					<p class="text-danger">Your name is required</p>
+					@enderror
+				</div>
 
 				
 				<div class="col-lg-5" style="padding-left: 200px">Category_id:</div>

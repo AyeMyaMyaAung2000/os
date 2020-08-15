@@ -5,7 +5,7 @@
 	<div class="text-justify py-2">
 
 		<h2>Brand Create(Form)</h2>
-		@if ($errors->any())
+		{{-- @if ($errors->any())
 		<div class="alert alert-danger">
 			<ul>
 				@foreach ($errors->all() as $error)
@@ -13,7 +13,7 @@
 				@endforeach
 			</ul>
 		</div>
-		@endif
+		@endif --}}
 		<form method="POST" action="{{ route('brands.store')}}" enctype="multipart/form-data">
 			@csrf
 			<div class="row">
@@ -23,19 +23,35 @@
 				{{-- </div> --}}
 
 				<div class="col-lg-5" style="padding-left: 200px">Name:</div>
-				<div class="col-lg-7"><input type="text" name="name" class=" form-control my-2"></div>
+				
+				<div class="col-lg-7"><input type="text" name="name" class=" form-control my-2" value="">
+
+					@error('name')
+					<p class="text-danger">Your name is required</p>
+					@enderror
+						
+					</div>
+				
 
 				
 				<div class="col-lg-5" style="padding-left: 200px">Photo:</div>
-				<div class="col-lg-7"><input type="file" name="photo" class="form-control-file my-2"></div>
-				
+				<div class="col-lg-7"><input type="file" name="photo" class="form-control-file my-2"  value="">
+					@error('photo')
+					<p class="text-danger">Your photo is required</p>
+					@enderror
+						@enderror
+						
+					</div>
+				</div>
 
 
-				<button type="submit" name="button" class="btn btn-primary my-2" style="margin-left: 200px;width: 150px">Create</button>
-			</form>
-		</div>
-		</div>
+
+
+			<button type="submit" name="button" class="btn btn-primary my-2" style="margin-left: 200px;width: 150px">Create</button>
+		</form>
 	</div>
+</div>
+</div>
 
 
 @endsection

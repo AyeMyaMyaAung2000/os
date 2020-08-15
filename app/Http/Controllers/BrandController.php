@@ -14,7 +14,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        return view('backend.brands.index');
+           $brands=Brand::all();
+        return view('backend.brands.index',compact('brands'));
     }
 
     /**
@@ -24,7 +25,8 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('backend.brands.create');
+        $brand=Brand::all();
+        return view('backend.brands.create',compact('brand'));
     }
 
     /**
@@ -44,14 +46,17 @@ class BrandController extends Controller
         ]);
 
         // If include file(filename)
+        
         $imageName=time().'.' .$request->photo->extension();
-        $request->photo->move(public_path('backend/brandimg'),$imageName);
-        $myfile='backend/brandimg' .$imageName;
-
+        $request->photo->move(public_path('backend/brandimg/'),$imageName);
+        $myfile='backend/brandimg/' .$imageName;
+       
+       
+        
         $brand=new Brand;//<==Items (model name)
        
         $brand->name = $request->name; 
-        $brand->photo = $request->photo;
+        $brand->photo = $myfile;
         
         $brand->save();
 
@@ -69,6 +74,7 @@ class BrandController extends Controller
     public function show($id)
     {
        
+        return view('backend.brands.show');
 
     }
 
@@ -80,7 +86,8 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        return view('backend.brands.edit');
+        $brand=Brand::find($id);        
+        return view('backend.brands.edit',compact('brand'));
     }
 
     /**
@@ -92,7 +99,36 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            
+            'name'=>'required',
+            'photo'=>'sometimes',
+          
+        ]);
+        //if include file,upload
+        if ($request->hasFile('photo')){
+             $imageName=time().'.' .$request->photo->extension();
+      
+
+        
+        $request->photo->move(public_path('backend/brandimg'),$imageName);
+        $myfile='backend/brandimg/' .$imageName;
+         @unlink($request->oldphoto);
+    }else{
+        $myfile=$request->oldphoto;
+    }
+
+         //data update
+        $brand=Brand::find($id);//<==Items (model name)
+      
+        $brand->name = $request->name; 
+        $brand->photo = $myfile;
+       
+        $brand->save();
+
+         // Redirect
+         return redirect()->route('brands.index');
+
     }
 
     /**
@@ -103,6 +139,10 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $brand=Brand::find($id);
+      $brand->delete();
+      //redirect
+      return redirect()->route('brands.index');
+    
     }
 }

@@ -9,6 +9,7 @@
 		</div>
 		<div class="col-lg-6">
 			<div class="row">
+
 				<div class="col-lg-6">
 					Product Name:
 				</div>
@@ -28,10 +29,22 @@
 					{{$item->price}}
 				</div><hr>
 				<div class="col-lg-6">
-					Description
+					Description:
 				</div>
 				<div class="col-lg-6">
 					{{$item->description}}
+				</div><hr>
+				<div class="col-lg-6">
+					Brand:
+				</div>
+				<div class="col-lg-6">
+					{{$item->brand->name}}
+				</div><hr>
+				<div class="col-lg-6">
+					Subcategory:
+				</div>
+				<div class="col-lg-6">
+					{{$item->subcategory->name}}
 				</div><hr>
 			</div>
 		</div>

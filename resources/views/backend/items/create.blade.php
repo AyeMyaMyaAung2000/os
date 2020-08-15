@@ -5,7 +5,7 @@
 	<div class="text-justify py-2">
 
 		<h2>Item Create(Form)</h2>
-		@if ($errors->any())
+		{{-- @if ($errors->any())
 		<div class="alert alert-danger">
 			<ul>
 				@foreach ($errors->all() as $error)
@@ -13,31 +13,56 @@
 				@endforeach
 			</ul>
 		</div>
-		@endif
+		@endif --}}
 		<form method="POST" action="{{ route('items.store')}}" enctype="multipart/form-data">
 			@csrf
 			<div class="row">
 				{{-- <div class="form-group"> --}}
 					<div class="col-lg-5" style="padding-left: 200px">CodeNo:</div>
-					<div class="col-lg-7"><input type="" name="codeno" class=" form-control my-2" ></div>
+					<div class="col-lg-7"><input type="" name="codeno" class=" form-control my-2" >
+						@error('codeno')
+					<p class="text-danger">Your name is required</p>
+					@enderror
+					</div>
 				{{-- </div> --}}
 
 				<div class="col-lg-5" style="padding-left: 200px">Name:</div>
-				<div class="col-lg-7"><input type="text" name="name" class=" form-control my-2"></div>
+				<div class="col-lg-7"><input type="text" name="name" class=" form-control my-2">
+					@error('name')
+					<p class="text-danger">Your name is required</p>
+					@enderror
+				</div>
 
 				<div class="col-lg-5" style="padding-left: 200px">Price:</div>
-				<div class="col-lg-7"><input type="number" name="price" class="my-2 form-control"></div>
+				<div class="col-lg-7"><input type="number" name="price" class="my-2 form-control">
+					@error('price')
+					<p class="text-danger">Your price is required</p>
+					@enderror
+				</div>
 				<div class="col-lg-5" style="padding-left: 200px">Discount:</div>
-				<div class="col-lg-7"><input type="number" name="discount" class="form-control my-2" ></div>
+				<div class="col-lg-7"><input type="number" name="discount" class="form-control my-2" >
+
+					@error('discount')
+					<p class="text-danger">Your discount is required</p>
+					@enderror
+				</div>
 				<div class="col-lg-5" style="padding-left: 200px">Photo:</div>
-				<div class="col-lg-7"><input type="file" name="photo" class="form-control-file my-2" ></div>
+				<div class="col-lg-7"><input type="file" name="photo" class="form-control-file my-2" >
+					@error('photo')
+					<p class="text-danger">Your Photo is required</p>
+					@enderror
+				</div>
 				<div class="col-lg-5 my-2" style="padding-left: 200px">Description:</div>
-				<div class="col-lg-7"><input type="text" name="description" class="form-control my-2" ></div>
+				<div class="col-lg-7"><input type="text" name="description" class="form-control my-2" >
+					@error('description')
+					<p class="text-danger">Your description is required</p>
+					@enderror
+				</div>
 
 				<div class="col-lg-5 my-2" style="padding-left: 200px">Brand_id:</div>
 				<div class="col-lg-7">
 					<select name="brand_id" class="form-control">
-						<optgroup label="Choose Subcategory" ></optgroup>
+						<optgroup label="Choose Subcategory" >
 						@foreach($brands as $brand)
 						<option value="{{$brand->id}}">{{$brand->name}}</option>
 					

@@ -31,7 +31,7 @@
 			<div class="col-lg-7"><input type="text" name="discount" class="form-control my-2" value="{{$item->discount}}"></div>
 			<div class="col-lg-5" style="padding-left: 200px">Photo:</div>
 			<div class="col-lg-7">
-				<img src="{{asset($item->photo)}}">
+				<img src="{{asset($item->photo)}}" width="100px;">
 				<input type="file" name="photo" class="form-control-file my-2" >
 				<input type="hidden" name="oldphoto" value="{{$item->photo}}"></div>
 			<div class="col-lg-5 my-2" style="padding-left: 200px">Description:</div>
@@ -57,7 +57,7 @@
 		<div class="col-lg-5" style="padding-left: 200px">Subcategory_id:</div>
 		<div class="col-lg-7">
 			<select name="subcategory_id" class="form-control">
-				<optgroup label="Choose Subcategory" ></optgroup>
+				<optgroup label="Choose Subcategory" >
 				@foreach($subcategories as $subcategory)
 				<option value="{{$subcategory->id}}"
 					@if($subcategory->id == $item->subcategory_id)

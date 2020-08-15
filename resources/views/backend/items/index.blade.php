@@ -25,7 +25,7 @@
 					<a href="{{ route ('items.show',$item->id)}}">
 						<span class="badge badge-primary badge-pill" >Detail</span>
 					</a>
-					<a href="#" class="modalbox" data-name="{{$item->name}}" data-photo="{{asset($item->photo)}}" data-price=" {{$item->price}}" data-desc="{{$item->description}}" data-toggle="modal" data-target="#modal">
+					<a href="#" class="modalbox" data-name="{{$item->name}}" data-photo="{{asset($item->photo)}}" data-price=" {{$item->price}}" data-desc="{{$item->description}}" >
 						<span class="badge badge-primary badge-pill" >Modal</span>
 					</a>
 				</td>
@@ -53,7 +53,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				<h5 class="modal-title" id="exampleModalLabel"></h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -92,7 +92,7 @@
 			$('.img-fluid').attr('src',photo);
 			$("#price").text(price);
 			$("#desc").text(desc);
-			$("#mymodal").modal('show');
+			$("#modal").modal('show');
 
 		})
 

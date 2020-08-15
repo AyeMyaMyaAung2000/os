@@ -14,6 +14,33 @@ Item Manage
 		-redirect->(index)
 -show in database
 
-Brand Manage
+Brand Managewa
 ------------
+
+
+13-82020(Frontend)
+----------
+-list,edit,delete(brand)
+-validation error,delete old img when new photo choose
+
+UI
+---
+
+-filter item page(data binding)
+-item detail page
+-checkout page
+-profile page(link/retrieve)
+-auth (multi role)
+
+
+Backend
+-----------
+-Order Retrieve
+-(backend/orders)
+-create view (index.blade.php)
+-show table(order list)
+-OrderController/index
+
+-RUD(category,subcategory)
+
 

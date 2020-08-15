@@ -28,7 +28,7 @@ class CreateItemsTable extends Migration
                     ->references('id')
                     ->on('brands')
                     ->onDelete('cascade');
-                    $table->foreign('subcategory_id')
+        $table->foreign('subcategory_id')
                     ->references('id')
                     ->on('subcategories')
                     ->onDelete('cascade');
