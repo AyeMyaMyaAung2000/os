@@ -12,6 +12,7 @@
 				<th>Note</th>
 				<th>Status</th>
 				<th>Total</th>
+				<th>Action</th>
 
 			</tr>
 		</thead>
@@ -26,6 +27,13 @@
 				<td >{{$order->note}}</td>
 				<td >{{$order->status}}</td>
 				<td >{{$order->total}}</td>
+				<td><a href="{{ route ('orders.show',$order->id)}}"><button class="btn btn-warning">Detail</button></a>
+
+					<form method="post" action="{{route('orders.destroy',$order->id)}}" onsubmit="return confirm('Are you sure delete?')" class="d-inline-block">	
+						@csrf
+						@method('DELETE')
+						<input type="submit" name="btnsubmit" value="Confirm" class="btn btn-danger">
+					</form></td>
 			</tr>
 			@endforeach
 			

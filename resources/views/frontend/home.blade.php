@@ -33,7 +33,7 @@
 			<span class="sr-only">Next</span>
 		</a>
 	</div> --}}
-	<h2 style="text-align: center;">Items</h2>
+	<h2 style="text-align: center;font-size: 35px;margin-bottom: 15px;">Hello Bike Lovers</h2>
 	<div class="row my-2">
 
 		@foreach($items as $item)
@@ -57,6 +57,8 @@
 		</div>
 	@endforeach
 	<!-- /.row -->
+</div>
+
 
 </div>
 @endsection
