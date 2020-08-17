@@ -12,8 +12,7 @@ class OrderController extends Controller
     public function_construct($value=''){
         $this->middleware('role:admin')->except('store');
         $this->middleware('role:customer')->only('store');
-    }
-    
+        }    
     /**
      * Display a listing of the resource.
      *
