@@ -1,8 +1,11 @@
 @extends('frontendtemplate')
+{{-- @section('sidebar')
+	@include ('frontend.sidebar')
+@endsection
+--}}
+@section('content') 
 
-@section('content')
-
-<div class="col-lg-9">
+<div class="col-lg-9 my-5">
 
 	{{-- <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
 		<ol class="carousel-indicators">
@@ -30,8 +33,9 @@
 			<span class="sr-only">Next</span>
 		</a>
 	</div> --}}
+	<h2 style="text-align: center;">Items</h2>
+	<div class="row my-2">
 
-	<div class="row">
 		@foreach($items as $item)
 		<div class="col-lg-4 col-md-6 mb-4">
 			

@@ -60,7 +60,7 @@ $(document).ready(function(){
 		var discount = $(this).data('discount');
 		var qty=1;
 		if (item_qty) {
-			qty+=--item_qty;
+			qty+=item_qty;
 		}
 
 		var shop_item = {

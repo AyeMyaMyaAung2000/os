@@ -31,6 +31,7 @@ UI
 -checkout page
 -profile page(link/retrieve)
 -auth (multi role)
+-if not include('sidebar'),show page center
 
 
 Backend
@@ -42,5 +43,8 @@ Backend
 -OrderController/index
 
 -RUD(category,subcategory)
+
+
+
 
 

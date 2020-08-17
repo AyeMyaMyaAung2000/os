@@ -47,11 +47,11 @@
 			</div>
 
 			<div class="offset-md-2 col-md-4 mt-3">
-				@auth 
+				@role('customer') 
 				<a href="#" class="btn btn-secondary buy_now">Checkout</a>
 				@else
 				<a href="{{route('login')}}" class="btn btn-secondary ">Login To Buy</a>
-				@endauth
+				@endrole
 			</div>
 
 
