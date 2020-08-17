@@ -46,5 +46,20 @@ Backend
 
 
 
+//Development Laravel Project
+-create subdomain
+-enter into subdomain using SSH
+-git clone
+-enter into folder (cd)
+-cp .env.example install
+-composer install
+-php artisan key:generate
 
+
+-In Cpanel
+	-create a database and user
+	-Add user to database
+	-SSH Terminal
+		-php artisan migrate
+		-php artisan db:seed
 
